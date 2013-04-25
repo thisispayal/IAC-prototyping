@@ -94,13 +94,23 @@
               <div class="row">
                   <div class="span4 offset1">
                       Number of cases on CD
-
                   </div>
                   <div class="span6">
                       <input type="text" />
                   </div>
               </div>
+
+              <div class="row">
+                  <div class="span4 offset1">
+                      Division
+                  </div>
+                  <div class="span6">
+                    <input id="autoDivision" type="text" data-provide="typeahead"  data-items="4"/>
+                </div>
+              </div>
+
           </div>
+
           <div class="form-section">
               <div class="row" id="add-patient-text">
                   <div class="span8">
@@ -258,7 +268,10 @@
     <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-      $(document).ready(function () {
+        $(document).ready(function () {
+            var divisions = ['ICAEL', 'ICAVL', 'ICANL', 'ICAMRL', 'ICACTL', 'ICACSF'];
+            $('#autoDivision').typeahead({ source: divisions });
+
           counter = 0;
           $("#add-fields").click(function () {
               var createField = $("<div id=\"additional-field\">");
