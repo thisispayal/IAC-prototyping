@@ -54,14 +54,14 @@
       padding-bottom: 20px;
       }
 
+      #subtract-template {
+      display:none;
+      }
+
       .btn{
         background-image:none;
         background-color:rgb(22,63,95);
         color:white;
-      }
-
-      #subtract-section {
-        display:none;
       }
     </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
@@ -72,195 +72,196 @@
     <![endif]-->
   </head>
 
-  <body>
+<body>
 
-      <div class="container">
+    <div class="container">
 
-          <h1>Describe Images/Files</h1>
+        <h1>Describe Images/Files</h1>
 
-          <hr>
+        <hr>
 
-          <div class="form-section">
-              <div class="row">
-                  <div class="span4 offset1">
-                      Application Number
+        <div class="form-section">
+            <div class="row">
+                <div class="span4 offset1">
+                    Application Number
 
-                  </div>
-                  <div class="span6">
-                      <input type="text" />
-                  </div>
-              </div>
-
-              <div class="row">
-                  <div class="span4 offset1">
-                      Number of cases on CD
-                  </div>
-                  <div class="span6">
-                      <input type="text" />
-                  </div>
-              </div>
-
-              <div class="row">
-                  <div class="span4 offset1">
-                      Division
-                  </div>
-                  <div class="span6">
-                    <input id="autoDivision" type="text" data-provide="typeahead"  data-items="4"/>
                 </div>
-              </div>
+                <div class="span6">
+                    <input type="text" />
+                </div>
+            </div>
 
-          </div>
+            <div class="row">
+                <div class="span4 offset1">
+                    Number of cases on CD
+                </div>
+                <div class="span6">
+                    <input type="text" />
+                </div>
+            </div>
 
-          <div class="form-section">
-              <div class="row" id="add-patient-text">
-                  <div class="span8">
-                      <div class="btn" id="add-fields"><i class="icon-plus icon-white"></i></div>
-                      <b>Add more fields:</b><i>There is more than one patient on this CD</i>
-                  </div>
-              </div>
+            <div class="row">
+                <div class="span4 offset1">
+                    Division
+                </div>
+                <div class="span6">
+                    <input id="autoDivision" type="text" data-provide="typeahead" data-items="4" />
+                </div>
+            </div>
 
-              <div class="patient-info">
-                  <div class="row">
-                      <div class="span4 offset1">
-                          Patient initials
-                      </div>
-                      <div class="span6">
-                          <input type="text" class="text-name" placeholder="Last" id="last-name" />
-                          <input type="text" class="text-name" placeholder="First" id="first-name" />
-                      </div>
-                  </div>
+        </div>
 
-                  <div class="row">
-                      <div class="span4 offset1">
-                          Date of study
-                      </div>
-                      <div class="span6">
-                          <input type="date" />
-                      </div>
-                  </div>
+        <div class="form-section">
+            <div class="row" id="add-patient-text">
+                <div class="span8">
+                    <div class="btn" id="add-fields"><i class="icon-plus icon-white"></i></div>
+                    <b>Add more fields:</b><i> There is more than one patient on this CD</i>
+                </div>
+            </div>
 
-                  <div class="row">
-                      <div class="span4 offset1">
-                          Type of viewer
+            <div class="patient-info">
+                <div class="row">
+                    <div class="span4 offset1">
+                        Patient initials
+                    </div>
+                    <div class="span6">
+                        <input type="text" class="text-name" placeholder="Last" id="last-name" />
+                        <input type="text" class="text-name" placeholder="First" id="first-name" />
+                    </div>
+                </div>
 
-                      </div>
-                      <div class="span6">
-                          <input type="text" />
-                      </div>
-                  </div>
+                <div class="row">
+                    <div class="span4 offset1">
+                        Date of study
+                    </div>
+                    <div class="span6">
+                        <input type="date" />
+                    </div>
+                </div>
 
-                  <div class="row">
-                      <div class="span4 offset1">
-                          Case type
+                <div class="row">
+                    <div class="span4 offset1">
+                        Type of viewer
 
-                      </div>
-                      <div class="span6">
-                          <label class="radio inline">
-                              <input type="radio" name="casetype" value="LV" />
-                              LV
-                          </label>
-                          <label class="radio inline">
-                              <input type="radio" name="casetype" value="AS" />
-                              AS
-                          </label>
-                          <label class="radio inline">
-                              <input type="radio" name="casetype" value="DN" />
-                              Don't know
-                          </label>
-                      </div>
-                  </div>
-              </div>
-          </div>
+                    </div>
+                    <div class="span6">
+                        <input type="text" />
+                    </div>
+                </div>
 
-          <div class="form-section" id="subtract-section">
-              <div class="row" id="subtract-patient-text">
-                  <div class="span8" id="collapse-button">
-                      <div class="btn"><i class="icon-minus icon-white"></i></div>
-                      <b>Subtract fields:</b><i>I do not need these additional fields</i>
-                  </div>
-              </div>
+                <div class="row">
+                    <div class="span4 offset1">
+                        Case type
 
-              <div class="patient-info" id="additional-sub">
-                  <div class="row">
-                      <div class="span4 offset1">
-                          Patient initials
-                      </div>
-                      <div class="span6">
-                          <input type="text" class="text-name" placeholder="Last" id="Text1" />
-                          <input type="text" class="text-name" placeholder="First" id="Text2" />
-                      </div>
-                  </div>
+                    </div>
+                    <div class="span6">
+                        <label class="radio inline">
+                            <input type="radio" name="casetype" value="LV" />
+                            LV
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="casetype" value="AS" />
+                            AS
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="casetype" value="DN" />
+                            Don't know
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                  <div class="row">
-                      <div class="span4 offset1">
-                          Date of study
-                      </div>
-                      <div class="span6">
-                          <input type="date" />
-                      </div>
-                  </div>
+        <div class="form-section" id="subtract-template">
+            <div class="row" id="subtract-patient-text">
+                <div class="span8">
+                    <div class="btn" id="collapse-button"><i class="icon-minus icon-white"></i></div>
+                    <b>Subtract fields:</b><i> I do not need these additional fields</i>
+                </div>
 
-                  <div class="row">
-                      <div class="span4 offset1">
-                          Type of viewer
+                <div class="patient-info" id="additional-sub">
+                    <div class="row">
+                        <div class="span4 offset1">
+                            Patient initials
+                        </div>
+                        <div class="span6">
+                            <input type="text" class="text-name" placeholder="Last" id="Text1" />
+                            <input type="text" class="text-name" placeholder="First" id="Text2" />
+                        </div>
+                    </div>
 
-                      </div>
-                      <div class="span6">
-                          <input type="text" />
-                      </div>
-                  </div>
+                    <div class="row">
+                        <div class="span4 offset1">
+                            Date of study
+                        </div>
+                        <div class="span6">
+                            <input type="date" />
+                        </div>
+                    </div>
 
-                  <div class="row">
-                      <div class="span4 offset1">
-                          Case type
+                    <div class="row">
+                        <div class="span4 offset1">
+                            Type of viewer
 
-                      </div>
-                      <div class="span6">
-                          <label class="radio inline">
-                              <input type="radio" name="casetype" value="LV" />
-                              LV
-                          </label>
-                          <label class="radio inline">
-                              <input type="radio" name="casetype" value="AS" />
-                              AS
-                          </label>
-                          <label class="radio inline">
-                              <input type="radio" name="casetype" value="DN" />
-                              Don't know
-                          </label>
-                      </div>
-                  </div>
-              </div>
-          </div>
+                        </div>
+                        <div class="span6">
+                            <input type="text" />
+                        </div>
+                    </div>
 
-          <div class="form-section" id="appendedarea"></div>
+                    <div class="row">
+                        <div class="span4 offset1">
+                            Case type
 
-          <div class="form-section" id="common-section">
-              <div class="row">
-                  <div class="span4 offset1">
-                      Additional Information
-                  </div>
-                  <div class="span6">
-                      <textarea rows="4"> </textarea>
-                  </div>
-              </div>
-          </div>
+                        </div>
+                        <div class="span6">
+                            <label class="radio inline">
+                                <input type="radio" name="casetype" value="LV" />
+                                LV
+                            </label>
+                            <label class="radio inline">
+                                <input type="radio" name="casetype" value="AS" />
+                                AS
+                            </label>
+                            <label class="radio inline">
+                                <input type="radio" name="casetype" value="DN" />
+                                Don't know
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-          <div class="row">
-              <div class="span8">
-                  <div class="btn btn-large" style="float: right;">
-                      <b>Continue</b> <i class="icon-chevron-right icon-white"></i>
-                  </div>
-              </div>
-          </div>
+        <div id="appendedarea"></div>
 
-          <hr>
+        <div class="form-section" id="common-section">
+            <div class="row">
+                <div class="span4 offset1">
+                    Additional Information
+                </div>
+                <div class="span6">
+                    <textarea rows="4"> </textarea>
+                </div>
+            </div>
+        </div>
 
-          <div class="footer">
-              <p>&copy; Vigilant Medical 2013</p>
-          </div>
+        <div class="row">
+            <div class="span8">
+                <div class="btn btn-large" style="float: right;">
+                    <b>Continue</b> <i class="icon-chevron-right icon-white"></i>
+                </div>
+            </div>
+        </div>
 
-      </div> <!-- /container -->
+        <hr>
+
+        <div class="footer">
+            <p>&copy; Vigilant Medical 2013</p>
+        </div>
+
+    </div>
+    <!-- /container -->
 
     <!-- Le javascript
     ================================================== -->
@@ -272,21 +273,22 @@
             var divisions = ['ICAEL', 'ICAVL', 'ICANL', 'ICAMRL', 'ICACTL', 'ICACSF'];
             $('#autoDivision').typeahead({ source: divisions });
 
-          counter = 0;
-          $("#add-fields").click(function () {
-              var createField = $("<div id=\"additional-field\">");
-              var patientField = $("#subtract-section").clone().appendTo(createField).appendTo($("#appendedarea")).show();
-              counter = counter + 1;
-              console.log(counter);
-              //$("#subtract-section").show();
-          });
+            counter = 0;
+            $("#add-fields").click(function () {
+                var createField = $("<div id=\"additional-field\">");
+                var patientField = $("#subtract-template").clone().appendTo(createField).appendTo($("#appendedarea")).show();
+                counter = counter + 1;
+                console.log(counter);
+                //$("#subtract-section").show();
+            });
 
-          $("#collapse-button").click(function () {
-              $("#additional-field" + counter).hide();
-              counter = counter - 1;
-          });
-      });
+            $("#collapse-button").click(function () {
+                //var removeThis = $(this).parents(".form-section").last().attr('id')
+                //$("#" + removeThis).children().hide();
+                $(this).parents(".row").last().hide();
+            });
+        });
     </script>
 
-  </body>
+</body>
 </html>
