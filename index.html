@@ -33,10 +33,6 @@
         font-size: 175%;
       }
 
-      .form-section {
-      padding-bottom: 35px;
-      }
-
       .footer {
       font-size: 70%;
       color: grey;
@@ -54,7 +50,7 @@
       padding-bottom: 20px;
       }
 
-      #subtract-template {
+      .subtract-template {
       display:none;
       }
 
@@ -63,6 +59,11 @@
         background-color:rgb(22,63,95);
         color:white;
       }
+
+     .form-section {
+      padding-bottom: 35px;
+     }
+     
     </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -172,13 +173,14 @@
             </div>
         </div>
 
-        <div class="form-section" id="subtract-template">
-            <div class="row" id="subtract-patient-text">
-                <div class="span8">
-                    <div class="btn" id="collapse-button"><i class="icon-minus icon-white"></i></div>
-                    <b>Subtract fields:</b><i> There is no additional patient on this CD</i>
+        <div class="subtract-template">
+            <div class="form-section">
+                <div class="row" id="subtract-patient-text">
+                    <div class="span8">
+                        <div class="btn collapse-button"><i class="icon-minus icon-white"></i></div>
+                        <b>Subtract fields:</b><i> There is no additional patient on this CD</i>
+                    </div>
                 </div>
-            </div>
                 <div class="patient-info" id="additional-sub">
                     <div class="row">
                         <div class="span4 offset1">
@@ -230,6 +232,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
 
         <div id="appendedarea"></div>
@@ -271,21 +274,21 @@
         $(document).ready(function () {
             var divisions = ['ICAEL', 'ICAVL', 'ICANL', 'ICAMRL', 'ICACTL', 'ICACSF'];
             $('#autoDivision').typeahead({ source: divisions });
-
             counter = 0;
+
             $("#add-fields").click(function () {
-                var createField = $("<div id=\"additional-field\">");
-                var patientField = $("#subtract-template").clone().appendTo(createField).appendTo($("#appendedarea")).show();
+                var patientField = $(".subtract-template > .form-section").clone().appendTo($("#appendedarea")).show();
                 counter = counter + 1;
                 console.log(counter);
                 //$("#subtract-section").show();
             });
 
-            $("#collapse-button").click(function () {
+            $(".collapse-button").click(function () {
                 //var removeThis = $(this).parents(".form-section").last().attr('id')
                 //$("#" + removeThis).children().hide();
-                $(this).parents(".row").last().hide();
+                $(this).parents().filter(".form-section").hide();
             });
+
         });
     </script>
 
