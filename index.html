@@ -274,18 +274,12 @@
         $(document).ready(function () {
             var divisions = ['ICAEL', 'ICAVL', 'ICANL', 'ICAMRL', 'ICACTL', 'ICACSF'];
             $('#autoDivision').typeahead({ source: divisions });
-            counter = 0;
 
             $("#add-fields").click(function () {
                 var patientField = $(".subtract-template > .form-section").clone().appendTo($("#appendedarea")).show();
-                counter = counter + 1;
-                console.log(counter);
-                //$("#subtract-section").show();
             });
 
-            $(".collapse-button").click(function () {
-                //var removeThis = $(this).parents(".form-section").last().attr('id')
-                //$("#" + removeThis).children().hide();
+            $("#appendedarea").on("click", ".collapse-button", function () {
                 $(this).parents().filter(".form-section").hide();
             });
 
