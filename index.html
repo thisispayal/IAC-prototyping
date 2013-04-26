@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -63,6 +63,13 @@
      .form-section {
       padding-bottom: 35px;
      }
+
+     .dropdown-menu>.active>a {
+        background-color:white;
+        background-image:none;
+        color: black;
+        width:auto;
+     }
      
     </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
@@ -81,6 +88,35 @@
 
         <hr>
 
+        <div class="row" id="division-field">
+            <div class="span4 offset1">
+                Division
+            </div>
+            <div class="span6">
+            <input type="text" id="text-dropdown" class="dropdown-toggle" data-toggle="dropdown" placeholder="Click to select division          ▼"/>
+            <ul class="dropdown-menu" style="top: 142.22222900390625px; left: 616.6666870117188px;">
+                <li data-value="ICAEL" class="active">
+                    <a>ICAEL</a>
+                </li>
+                <li data-value="ICAVL" class="active">
+                    <a>ICAVL</a>
+                </li>
+                <li data-value="ICANL" class="active">
+                    <a>ICANL</a>
+                </li>
+                <li data-value="ICAMRL" class="active">
+                    <a>ICAMRL</a>
+                </li>
+                <li data-value="ICACTL" class="active">
+                    <a>ICACTL</a>
+                </li>
+                <li data-value="ICACSF" class="active">
+                    <a>ICACSF</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        
         <div class="form-section">
             <div class="row">
                 <div class="span4 offset1">
@@ -101,22 +137,13 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="span4 offset1">
-                    Division
-                </div>
-                <div class="span6">
-                    <input id="autoDivision" type="text" data-provide="typeahead" data-items="4" />
-                </div>
-            </div>
-
         </div>
 
         <div class="form-section">
             <div class="row" id="add-patient-text">
                 <div class="span8">
                     <div class="btn" id="add-fields"><i class="icon-plus icon-white"></i></div>
-                    <b>Add more fields:</b><i> There is more than one patient on this CD</i>
+                    <b>Add another patient</b><i></i>
                 </div>
             </div>
 
@@ -178,7 +205,7 @@
                 <div class="row" id="subtract-patient-text">
                     <div class="span8">
                         <div class="btn collapse-button"><i class="icon-minus icon-white"></i></div>
-                        <b>Subtract fields:</b><i> There is no additional patient on this CD</i>
+                        <b>Remove patient</b><i></i>
                     </div>
                 </div>
                 <div class="patient-info" id="additional-sub">
@@ -282,6 +309,17 @@
             $("#appendedarea").on("click", ".collapse-button", function () {
                 $(this).parents().filter(".form-section").hide();
             });
+
+            $("li").click(function () {
+                var textValue = $(this).attr("data-value");
+                console.log(textValue);
+                $("#text-dropdown").attr("value", textValue.toString());
+            });
+           //$("input[data-provide='typeahead']").click(function () {
+             // $(".dropdown-menu").show();
+           //});
+
+          //  $("input[data-provide='typeahead']").click(function () {
 
         });
     </script>
